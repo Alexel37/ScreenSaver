@@ -135,9 +135,10 @@ namespace Alexel37ScreenSaver
 
                                     if(_debugMode && disabled)
                                     {
-                                        previousBitmap.Save($"t1{name.Replace("\\", string.Empty)}.png");
-                                        currentBitmap.Save($"t2{name.Replace("\\", string.Empty)}.png");
-                                        File.WriteAllText("t3.txt", $"{position}");
+                                        var displayName = name.Replace("\\", string.Empty);
+                                        previousBitmap.Save($"t1{displayName}.png");
+                                        currentBitmap.Save($"t2{displayName}.png");
+                                        File.WriteAllText($"t3{displayName}.txt", $"{position}");
                                     }
                                 }
                                 else
