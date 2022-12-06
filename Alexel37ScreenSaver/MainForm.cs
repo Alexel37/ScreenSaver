@@ -135,8 +135,9 @@ namespace Alexel37ScreenSaver
 
                                     if(_debugMode && disabled)
                                     {
-                                        previousBitmap.Save($"t1{name.Replace("\\", string.Empty)}-{position}.png");
-                                        currentBitmap.Save($"t2{name.Replace("\\", string.Empty)}-{position}.png");
+                                        previousBitmap.Save($"t1{name.Replace("\\", string.Empty)}.png");
+                                        currentBitmap.Save($"t2{name.Replace("\\", string.Empty)}.png");
+                                        File.WriteAllText("t3.txt", $"{position}");
                                     }
                                 }
                                 else
@@ -192,7 +193,7 @@ namespace Alexel37ScreenSaver
             _debugMode = !_debugMode;
             var text = ToogleDebugButton.Text;
             text = _debugMode ? text.Replace("Don't", string.Empty) : $"Don't {text}";
-            ToogleDebugButton.Text = text;
+            ToogleDebugButton.Text = text.Trim();
         }
     }
 }
